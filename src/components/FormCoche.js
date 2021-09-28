@@ -1,47 +1,59 @@
-import Imagen from '../img/img-form.jpg'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ListaCoches from './ListaCoches';
-import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader'
+import { css } from "@emotion/react";
+import OptionsSelect1 from './OptionsSelect1';
+
 
 
 //actions redux
-import { formActions, errorAction, ocultarFormAction } from '../actions/cochesActions';
+import { formActions, errorAction, ocultarFormAction, spinnerAction, diasAction } from '../actions/cochesActions';
 import {useDispatch, useSelector} from 'react-redux'
+
 
 const FormCoche = () => {
 
+ const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
-    const [busqueda, setBusqueda] = useState({
+const [busqueda, setBusqueda] = useState({
         provinciasalida:'',
         provinciallegada:'',
         fechasalida :'',
         fechallegada:'',
         horasalida:'',
-        horallegada:''
+        horallegada:'',
+        
 
-    })
+})  
 
-    const {provinciallegada, provinciasalida, fechasalida, fechallegada, horasalida, horallegada} = busqueda;
+
+
+   const {provinciallegada, provinciasalida, fechasalida, fechallegada, horasalida, horallegada} = busqueda;
 
     const dispatch = useDispatch();
 
     // acceder al state del store
     const submitAction = () => dispatch (formActions());
     const obtenerDatos = dato => dispatch (formActions(dato));
-
-
+    //
     const ocultarForm = () => dispatch (ocultarFormAction());
-    const provinciaForm = () => dispatch (ocultarFormAction());
-
-
+    //
     const errorValidate = () => dispatch (errorAction());
+    //
+    const spinnerForm = () => dispatch (spinnerAction())
+    //
+    const diasReserva = dia => dispatch (diasAction(dia))
 
 
     // obtener el state
     const lista = useSelector(state =>state.coches.lista);
     const error = useSelector(state =>state.coches.error)
     const formulario = useSelector(state => state.coches.formulario)
-    const provinciaform = useSelector(state => state.coches.provinciaform)
+    const loading = useSelector (state => state.coches.loading)
     
     
     
@@ -67,31 +79,42 @@ const FormCoche = () => {
 
     }
 
-        
+    setTimeout(() => {
 
         obtenerDatos({
-        provinciasalida,
-        provinciallegada,
-        fechasalida ,
-        fechallegada,
-        horasalida,
-        horallegada
-        })
+            provinciasalida,
+            provinciallegada,
+            fechasalida ,
+            fechallegada,
+            horasalida,
+            horallegada,
+            
+            })
 
-        ocultarForm()
+            spinnerForm()
 
+            ocultarForm()
+    
+    }, 2000)
 
+    const date1 = new Date (fechasalida)
+        const date2 = new Date (fechallegada)
+      
+        const diff = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
+      
+        diasReserva(diff);   
 
-
-    }
+    
+}
 
     const onClick = () => {
         submitAction()
     }
 
-    const onClickProvincia = () => {
-        provinciaForm()
-    }
+    
+
+
+
 
 return (
         
@@ -100,146 +123,45 @@ return (
 
     {formulario ? 
         <div className="container_form">
-            <img className="img_form" src = {Imagen} alt="coche"/>
-           
            
                 
-            <form onSubmit ={onSubmitBusqueda} className="form">
-                
-                
-                <h1 className="title_form">Alquila tu coche ideal!</h1>
-                
-                
-                
+            <div className="container_titulo">       
+                <h1 className="titulo">RENT CAR</h1>
+                <div className="line"></div>
+                <h2 className="subtitulo">Alquila tu vehiculo de la manera mas sencilla</h2>
+                <h3 className="lorem">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. .</h3>
+            </div>
+              
+            
            
+           <form onSubmit ={onSubmitBusqueda} className="form">
+                <h2>Haz tu reserva ahora</h2>
+                
+                
+                
                 <div className="form_field">
                         
                         <select  
-                        name="provinciasalida" 
-                        value={provinciasalida} 
-                        onChange={onChangeBusqueda} className="form-control"
+                            name="provinciasalida" 
+                            value={provinciasalida} 
+                            onChange={onChangeBusqueda} className="form_select"
                         >
-                            <option value="">Elige Provincia</option>
-                            <option value="Álava/Araba">Álava/Araba</option>
-                            <option value="Albacete">Albacete</option>
-                            <option value="Alicante">Alicante</option>
-                            <option value="Almería">Almería</option>
-                            <option value="Asturias">Asturias</option>
-                            <option value="Ávila">Ávila</option>
-                            <option value="Badajoz">Badajoz</option>
-                            <option value="Baleares">Baleares</option>
-                            <option value="Barcelona">Barcelona</option>
-                            <option value="Burgos">Burgos</option>
-                            <option value="Cáceres">Cáceres</option>
-                            <option value="Cádiz">Cádiz</option>
-                            <option value="Cantabria">Cantabria</option>
-                            <option value="Castellón">Castellón</option>
-                            <option value="Ceuta">Ceuta</option>
-                            <option value="Ciudad Real">Ciudad Real</option>
-                            <option value="Córdoba">Córdoba</option>
-                            <option value="Cuenca">Cuenca</option>
-                            <option value="Gerona/Girona">Gerona/Girona</option>
-                            <option value="Granada">Granada</option>
-                            <option value="Guadalajara">Guadalajara</option>
-                            <option value="Guipúzcoa/Gipuzkoa">Guipúzcoa/Gipuzkoa</option>
-                            <option value="Huelva">Huelva</option>
-                            <option value="Huesca">Huesca</option>
-                            <option value="Jaén">Jaén</option>
-                            <option value="La Coruña/A Coruña">La Coruña/A Coruña</option>
-                            <option value="La Rioja">La Rioja</option>
-                            <option value="Las Palmas">Las Palmas</option>
-                            <option value="León">León</option>
-                            <option value="Lérida/Lleida">Lérida/Lleida</option>
-                            <option value="Lugo">Lugo</option>
-                            <option value="Madrid">Madrid</option>
-                            <option value="Málaga">Málaga</option>
-                            <option value="Melilla">Melilla</option>
-                            <option value="Murcia">Murcia</option>
-                            <option value="Navarra">Navarra</option>
-                            <option value="Orense/Ourense">Orense/Ourense</option>
-                            <option value="Palencia">Palencia</option>
-                            <option value="Pontevedra">Pontevedra</option>
-                            <option value="Salamanca">Salamanca</option>
-                            <option value="Segovia">Segovia</option>
-                            <option value="Sevilla">Sevilla</option>
-                            <option value="Soria">Soria</option>
-                            <option value="Tarragona">Tarragona</option>
-                            <option value="Tenerife">Tenerife</option>
-                            <option value="Teruel">Teruel</option>
-                            <option value="Toledo">Toledo</option>
-                            <option value="Valencia">Valencia</option>
-                            <option value="Valladolid">Valladolid</option>
-                            <option value="Vizcaya/Bizkaia">Vizcaya/Bizkaia</option>
-                            <option value="Zamora">Zamora</option>
-                            <option value="Zaragoza">Zaragoza</option>
+                            <OptionsSelect1/>
                         </select>
                 
-                    
-                    
-                  
-                  
-                  <select onChange={onChangeBusqueda} name="provinciallegada" value={provinciallegada}  className="form-control">
-                        <option value="">Elige Provincia</option>
-                        <option value="Álava/Araba">Álava/Araba</option>
-                        <option value="Albacete">Albacete</option>
-                        <option value="Alicante">Alicante</option>
-                        <option value="Almería">Almería</option>
-                        <option value="Asturias">Asturias</option>
-                        <option value="Ávila">Ávila</option>
-                        <option value="Badajoz">Badajoz</option>
-                        <option value="Baleares">Baleares</option>
-                        <option value="Barcelona">Barcelona</option>
-                        <option value="Burgos">Burgos</option>
-                        <option value="Cáceres">Cáceres</option>
-                        <option value="Cádiz">Cádiz</option>
-                        <option value="Cantabria">Cantabria</option>
-                        <option value="Castellón">Castellón</option>
-                        <option value="Ceuta">Ceuta</option>
-                        <option value="Ciudad Real">Ciudad Real</option>
-                        <option value="Córdoba">Córdoba</option>
-                        <option value="Cuenca">Cuenca</option>
-                        <option value="Gerona/Girona">Gerona/Girona</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guadalajara">Guadalajara</option>
-                        <option value="Guipúzcoa/Gipuzkoa">Guipúzcoa/Gipuzkoa</option>
-                        <option value="Huelva">Huelva</option>
-                        <option value="Huesca">Huesca</option>
-                        <option value="Jaén">Jaén</option>
-                        <option value="La Coruña/A Coruña">La Coruña/A Coruña</option>
-                        <option value="La Rioja">La Rioja</option>
-                        <option value="Las Palmas">Las Palmas</option>
-                        <option value="León">León</option>
-                        <option value="Lérida/Lleida">Lérida/Lleida</option>
-                        <option value="Lugo">Lugo</option>
-                        <option value="Madrid">Madrid</option>
-                        <option value="Málaga">Málaga</option>
-                        <option value="Melilla">Melilla</option>
-                        <option value="Murcia">Murcia</option>
-                        <option value="Navarra">Navarra</option>
-                        <option value="Orense/Ourense">Orense/Ourense</option>
-                        <option value="Palencia">Palencia</option>
-                        <option value="Pontevedra">Pontevedra</option>
-                        <option value="Salamanca">Salamanca</option>
-                        <option value="Segovia">Segovia</option>
-                        <option value="Sevilla">Sevilla</option>
-                        <option value="Soria">Soria</option>
-                        <option value="Tarragona">Tarragona</option>
-                        <option value="Tenerife">Tenerife</option>
-                        <option value="Teruel">Teruel</option>
-                        <option value="Toledo">Toledo</option>
-                        <option value="Valencia">Valencia</option>
-                        <option value="Valladolid">Valladolid</option>
-                        <option value="Vizcaya/Bizkaia">Vizcaya/Bizkaia</option>
-                        <option value="Zamora">Zamora</option>
-                        <option value="Zaragoza">Zaragoza</option>
-                    </select>
+                        <select 
+                            onChange={onChangeBusqueda} 
+                            name="provinciallegada" value={provinciallegada}  
+                            className="form_select">
+                            <OptionsSelect1/>
+                        </select>
                 </div>
 
                 <div className="form_field">
                 
                     <input
                         onChange={onChangeBusqueda}
-                        className="input_form"  
+                        className="form-control"  
                         type="date" 
                         name='fechasalida'
                         value={fechasalida}
@@ -247,7 +169,7 @@ return (
                     />
                     <input
                     onChange={onChangeBusqueda}
-                    className="input_form" 
+                    className="form-control" 
                     type ="time"
                     name ="horasalida"
                     value={horasalida}
@@ -256,7 +178,7 @@ return (
                 <div className="form_field">
                     <input
                         onChange={onChangeBusqueda}
-                        className="input_form" 
+                        className="form-control" 
                         type="date" 
                         name='fechallegada'
                         value={fechallegada}
@@ -264,7 +186,7 @@ return (
                     />
                      <input
                         onChange={onChangeBusqueda}
-                        className="input_form" 
+                        className="form-control" 
                         type ="time"
                         name ="horallegada"
                         value={horallegada}
@@ -272,31 +194,35 @@ return (
                 </div>
                 
 
-                
-               
-
                 <div className="form_field">
-                <button onClick = {onClick} type="submit" className="btn_submit">Buscar</button>
+                    <button 
+                        onClick = {onClick} 
+                        type="submit"
+                        className="btn_submit"
+                        
+                        >Buscar
+                    </button>
                 </div>
                 { error ? <p>Es obligatorio rellenar todos los campos</p> : null }
-
                 
-                
+                {loading ? 
+                   <ClipLoader
+                       css={override}
+                   
+                   /> 
+                : null}
 
                 </form> : 
 
                 </div> :null} 
                 
-
-
-
                 { lista ?
                  <ListaCoches
                    busqueda = {busqueda}
                    
+                   
                 />  : null}
                 
-        
         </div>
         
       );

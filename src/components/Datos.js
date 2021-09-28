@@ -1,4 +1,4 @@
-
+import {FaArrowAltCircleRight} from 'react-icons/fa'
 
 const Datos = ({busqueda}) => {
     
@@ -8,19 +8,30 @@ const Datos = ({busqueda}) => {
    fechasalida ,
    fechallegada,
    horasalida,
-   horallegada} = busqueda
-   
+   horallegada} = busqueda;
+
+
 return (
-      <ul>
-         <h1>Datos obtenidos del form</h1>
-         <li>{provinciasalida}</li>
-         <li>{provinciallegada}</li>
-         <li>{fechasalida}</li>
-         <li>{fechallegada}</li>
-         <li>{horasalida}</li>
-         <li>{horallegada}</li>
+     
+         <aside className="container_datos">
+            <h1>Itinerario</h1>
+            <h3>Lugar de salida y regreso</h3>
+            <div className="container_itinerario">
+               <p>{provinciasalida}</p>
+               <FaArrowAltCircleRight/>
+               <p>{provinciallegada}</p>
+            </div>
+            <h3>Fecha y hora de salida y regreso</h3>
+            <div className="container_itinerario">
+               <p>{fechasalida}</p>
+               <p>{horasalida}</p>
+               <FaArrowAltCircleRight/>
+               <p>{fechallegada}</p>
+               <p>{horallegada}</p>
+            </div>
+         </aside>
          
-      </ul>
+      
       );
 }
  

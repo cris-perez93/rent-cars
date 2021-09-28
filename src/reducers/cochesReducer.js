@@ -1,25 +1,40 @@
-import { MOSTRAR_LISTA,VALIDAR_ERROR, OBTENER_DATOS, OCULTAR_FORM,MOSTRAR_PROVINCIA_FORM} from "../types";
+import { MOSTRAR_LISTA,VALIDAR_ERROR, OBTENER_DATOS, OCULTAR_FORM,MOSTRAR_SPINNER,DIAS_RESERVA} from "../types";
+import annete from '../img/anette.png'
+
+import gtr from '../img/gtr.png'
+import murano from '../img/murano.png'
+import california from '../img/california.png'
+import qashqai from '../img/qashqai.png'
+import tesla from '../img/tesla.png'
+import nissan from '../img/furgoneta.png'
+import ferrari from '../img/deportivo.png'
+import tiguan from '../img/Todoterreno.png'
+import bugatti from '../img/bugati.png'
+
 
 
 // cada reducer tiene su propio state
 const initialState = {
     coches: [
-        { id:1,nombre: 'Ferrari 488 GTB', imagen: "" , precio :"200", tipo: "deportivo" },
-        { id:2,nombre: 'Nissan Murano', imagen: "" , precio :"200", tipo: "todoterreno"},
-        { id:3,nombre: 'Nissan Skyline GT-R', imagen: "" , precio :"200", tipo: "deportivo"},
-        { id:4,nombre: 'Bugatti Veyron', imagen: "" , precio :"200", tipo: "deportivo"},
-        { id:5,nombre: 'Volkswagen Tiguan', imagen: "" , precio :"200", tipo: "todoterreno" },
-        { id:6,nombre: 'Nissan NV200', imagen: "" , precio :"200", tipo: "furgoneta"},
-        { id:7,nombre: 'Nissan NV Passenger', imagen: "" , precio :"200", tipo: "furgoneta"},
-        { id:8,nombre: 'Nissan Qashqai', imagen: "" , precio :"200", tipo: "todoterreno"},
-        { id:9,nombre: 'Nissan NV300', imagen: "" , precio :"200", tipo: "furgoneta"}
+        { id:1,nombre: 'Ferrari 488 GTB', imagen: ferrari , precio :100, tipo: "deportivo",plazas: '5', motor: 'Gasolina' },
+        { id:2,nombre: 'Nissan Murano', imagen: murano , precio :50, tipo: "todoterreno",plazas: '5', motor: 'Diesel'},
+        { id:3,nombre: 'Nissan Skyline GT-R', imagen: gtr , precio :100, tipo: "deportivo",plazas: '5', motor: 'Gasolina'},
+        { id:4,nombre: 'Bugatti Veyron', imagen: bugatti , precio :100, tipo: "deportivo",plazas: '5', motor: 'Gasolina'},
+        { id:5,nombre: 'Volkswagen Tiguan', imagen: tiguan , precio :50, tipo: "todoterreno",plazas: '5', motor: 'Diesel' },
+        { id:6,nombre: 'Nissan NV200', imagen: nissan , precio :20, tipo: "furgoneta",plazas: '5', motor: 'Diesel'},
+        { id:7,nombre: 'Volkswaguen California', imagen: california , precio :"20", tipo: "furgoneta",plazas: '5', motor: 'Diesel'},
+        { id:8,nombre: 'Nissan Qashqai', imagen: qashqai , precio :50, tipo: "todoterreno",plazas: '5', motor: 'Diesel'},
+        { id:9,nombre: 'Nissan NV300', imagen:annete , precio :20, tipo: "furgoneta",plazas: '5', motor: 'Diesel'},
+        { id:10,nombre: 'Tesla', imagen:tesla , precio :80, tipo: "electrico",plazas: '5', motor: 'Electrico'}
     ],
     formulario:true,
     datos:[],
     lista: false,
     error: false,
     loading: false,
-    provinciaform: false 
+    provinciaform: false,
+    diasreserva: []
+
 }
 
 export default function(state = initialState, action) {
@@ -30,6 +45,7 @@ export default function(state = initialState, action) {
                 ...state,
                 lista : true,
                 
+                
             }
 
 
@@ -38,7 +54,10 @@ export default function(state = initialState, action) {
                 ...state,
                 datos: [...state.datos, action.payload],
                 error: false,
-                //formulario: false
+                loading:true,
+                lista:false
+                
+                
 
             }
             
@@ -46,7 +65,8 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 error: true,
-                lista:false
+                lista:false,
+                loading: false
                 
                 
             }
@@ -54,16 +74,25 @@ export default function(state = initialState, action) {
         case OCULTAR_FORM:
            return{
                 ...state,
-                formulario: false
+                formulario: false,
+                loading:false,
+                lista:true
                
             }
+        case MOSTRAR_SPINNER: 
+        return{
+            ...state,
+            loading: true,
+            
+        }
 
-        case MOSTRAR_PROVINCIA_FORM:
+        case DIAS_RESERVA:
             return{
                 ...state,
-                provinciaform: true
+                diasreserva: [ action.payload]
             }
 
+     
        
          
            default:

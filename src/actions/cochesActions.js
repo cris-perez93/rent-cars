@@ -1,5 +1,5 @@
-import {OCULTAR_FORM, MOSTRAR_LISTA,VALIDAR_ERROR,OBTENER_DATOS,MOSTRAR_PROVINCIA_FORM} from "../types";
-import clienteAxios from "../config/axios";
+import {OCULTAR_FORM, MOSTRAR_LISTA,VALIDAR_ERROR,OBTENER_DATOS,MOSTRAR_SPINNER,DIAS_RESERVA} from "../types";
+
 
 
 
@@ -45,7 +45,7 @@ const errorValidate = () => ({
 export function ocultarFormAction() {
     return(dispatch) => {
          dispatch(ocultarForm());
-         dispatch(provinciaForm())
+         //dispatch(provinciaForm())
     }
 }
 
@@ -53,9 +53,30 @@ const ocultarForm = () => ({
     type: OCULTAR_FORM
 })
 
-const provinciaForm = () => ({
-    type: MOSTRAR_PROVINCIA_FORM
+
+export function spinnerAction() {
+    return(dispatch) => {
+         dispatch(spinnerForm());
+         
+    }
+}
+
+const spinnerForm =  () => ({
+    type: MOSTRAR_SPINNER
+}
+)
+
+export function diasAction(dia) {
+    return(dispatch) => {
+        dispatch(diasReserva(dia));
+    }
+}
+
+const diasReserva = (dia) => ({
+    type: DIAS_RESERVA,
+    payload: dia 
 })
+
 
 
 
