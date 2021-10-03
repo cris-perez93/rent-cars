@@ -69,10 +69,7 @@ const [busqueda, setBusqueda] = useState({
 
     }
     
-  
-
-
-    const onSubmitBusqueda = e =>{
+  const onSubmitBusqueda = e =>{
         e.preventDefault();
 
         //validar campos vacios
@@ -95,11 +92,7 @@ const [busqueda, setBusqueda] = useState({
         }
 
 
-
-        
-
-
-    setTimeout(() => {
+  setTimeout(() => {
 
         obtenerDatos({
             provinciasalida,
@@ -119,11 +112,6 @@ const [busqueda, setBusqueda] = useState({
 
         
 
-
-    
-        
-
-    
 }
 
     const onClick = () => {
@@ -131,12 +119,6 @@ const [busqueda, setBusqueda] = useState({
     }
 
     
-
-
-    
-
-
-
 
 return (
         
@@ -184,10 +166,16 @@ return (
                     <input
                     
                         onChange={onChangeBusqueda}
-                        className="form-control"  
+                        className="form-control textbox-n"  
                         type="date" 
                         name='fechasalida'
                         value={fechasalida}
+                        defaultValue ="date"
+                        
+                        
+                        
+                        
+                        
                         
                     />
                     <input
@@ -205,6 +193,7 @@ return (
                         type="date" 
                         name='fechallegada'
                         value={fechallegada}
+                        defaultValue ="date"
                         
                     />
                      <input
