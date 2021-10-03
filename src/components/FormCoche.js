@@ -162,31 +162,32 @@ return (
                 </div>
 
                 <div className="form_field">
-                    
+
+                <div className="horas"> 
+                    <label>Fechas</label>
                     <input
-                    
                         onChange={onChangeBusqueda}
                         className="form-control textbox-n"  
                         type="date" 
                         name='fechasalida'
                         value={fechasalida}
                         defaultValue ="date"
-                        
-                        
-                        
-                        
-                        
-                        
                     />
-                    <input
-                    onChange={onChangeBusqueda}
-                    className="form-control" 
-                    type ="time"
-                    name ="horasalida"
-                    value={horasalida}
-                    />
+                    </div>
+                    <div className="horas">
+                        <label>Hora</label>
+                        <input
+                        onChange={onChangeBusqueda}
+                        className="form-control" 
+                        type ="time"
+                        name ="horasalida"
+                        value={horasalida}
+                        />
+                    </div>
                 </div>
                 <div className="form_field">
+                  <div className="horas">
+                    <label>Fechas</label>
                     <input
                         onChange={onChangeBusqueda}
                         className="form-control" 
@@ -196,13 +197,17 @@ return (
                         defaultValue ="date"
                         
                     />
+                     </div>
+                    <div className="horas">
+                     <label>Hora</label>
                      <input
                         onChange={onChangeBusqueda}
                         className="form-control" 
                         type ="time"
                         name ="horallegada"
                         value={horallegada}
-                />
+                      />
+                     </div>
                 </div>
                 
 
