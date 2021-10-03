@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/rent-cars/static/css/main.1b2b3c4f.chunk.css",
+    "main.js": "/rent-cars/static/js/main.e5f47191.chunk.js",
+    "main.js.map": "/rent-cars/static/js/main.e5f47191.chunk.js.map",
+    "runtime-main.js": "/rent-cars/static/js/runtime-main.6638af38.js",
+    "runtime-main.js.map": "/rent-cars/static/js/runtime-main.6638af38.js.map",
+    "static/js/2.dd32ff88.chunk.js": "/rent-cars/static/js/2.dd32ff88.chunk.js",
+    "static/js/2.dd32ff88.chunk.js.map": "/rent-cars/static/js/2.dd32ff88.chunk.js.map",
+    "static/js/3.a286ad39.chunk.js": "/rent-cars/static/js/3.a286ad39.chunk.js",
+    "static/js/3.a286ad39.chunk.js.map": "/rent-cars/static/js/3.a286ad39.chunk.js.map",
+    "index.html": "/rent-cars/index.html",
+    "static/css/main.1b2b3c4f.chunk.css.map": "/rent-cars/static/css/main.1b2b3c4f.chunk.css.map",
+    "static/js/2.dd32ff88.chunk.js.LICENSE.txt": "/rent-cars/static/js/2.dd32ff88.chunk.js.LICENSE.txt",
+    "static/media/Todoterreno.154abe13.png": "/rent-cars/static/media/Todoterreno.154abe13.png",
+    "static/media/anette.ad64140c.png": "/rent-cars/static/media/anette.ad64140c.png",
+    "static/media/index.css": "/rent-cars/static/media/background_form.4d5a889f.jpg",
+    "static/media/bugati.56e6df93.png": "/rent-cars/static/media/bugati.56e6df93.png",
+    "static/media/california.c37ed3c1.png": "/rent-cars/static/media/california.c37ed3c1.png",
+    "static/media/deportivo.c165dd57.png": "/rent-cars/static/media/deportivo.c165dd57.png",
+    "static/media/furgoneta.fdeda965.png": "/rent-cars/static/media/furgoneta.fdeda965.png",
+    "static/media/gtr.860910db.png": "/rent-cars/static/media/gtr.860910db.png",
+    "static/media/murano.cf7f8a54.png": "/rent-cars/static/media/murano.cf7f8a54.png",
+    "static/media/qashqai.ad642882.png": "/rent-cars/static/media/qashqai.ad642882.png",
+    "static/media/tesla.5b615d02.png": "/rent-cars/static/media/tesla.5b615d02.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6638af38.js",
+    "static/js/2.dd32ff88.chunk.js",
+    "static/css/main.1b2b3c4f.chunk.css",
+    "static/js/main.e5f47191.chunk.js"
+  ]
+}
