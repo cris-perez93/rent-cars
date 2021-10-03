@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rent-cars/static/css/main.1b2b3c4f.chunk.css",
-    "main.js": "/rent-cars/static/js/main.e5f47191.chunk.js",
-    "main.js.map": "/rent-cars/static/js/main.e5f47191.chunk.js.map",
+    "main.js": "/rent-cars/static/js/main.66639f70.chunk.js",
+    "main.js.map": "/rent-cars/static/js/main.66639f70.chunk.js.map",
     "runtime-main.js": "/rent-cars/static/js/runtime-main.6638af38.js",
     "runtime-main.js.map": "/rent-cars/static/js/runtime-main.6638af38.js.map",
     "static/js/2.dd32ff88.chunk.js": "/rent-cars/static/js/2.dd32ff88.chunk.js",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.6638af38.js",
     "static/js/2.dd32ff88.chunk.js",
     "static/css/main.1b2b3c4f.chunk.css",
-    "static/js/main.e5f47191.chunk.js"
+    "static/js/main.66639f70.chunk.js"
   ]
 }
