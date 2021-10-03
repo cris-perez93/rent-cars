@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import ListaCoches from './ListaCoches';
 import ClipLoader from 'react-spinners/ClipLoader'
 import { css } from "@emotion/react";
@@ -7,7 +7,7 @@ import OptionsSelect1 from './OptionsSelect1';
 
 
 //actions redux
-import { formActions, errorAction, ocultarFormAction, spinnerAction, diasAction } from '../actions/cochesActions';
+import { formActions, errorAction, ocultarFormAction, spinnerAction, diasAction,} from '../actions/cochesActions';
 import {useDispatch, useSelector} from 'react-redux'
 
 
@@ -43,6 +43,7 @@ const [busqueda, setBusqueda] = useState({
     const ocultarForm = () => dispatch (ocultarFormAction());
     //
     const errorValidate = () => dispatch (errorAction());
+    const errorValidateFechas = () => dispatch (errorAction());
     //
     const spinnerForm = () => dispatch (spinnerAction())
     //
@@ -51,7 +52,8 @@ const [busqueda, setBusqueda] = useState({
 
     // obtener el state
     const lista = useSelector(state =>state.coches.lista);
-    const error = useSelector(state =>state.coches.error)
+    const error = useSelector(state =>state.coches.error);
+    const errorfecha = useSelector(state =>state.coches.errorfecha)
     const formulario = useSelector(state => state.coches.formulario)
     const loading = useSelector (state => state.coches.loading)
     
@@ -62,6 +64,8 @@ const [busqueda, setBusqueda] = useState({
             ...busqueda,
             [e.target.name] : e.target.value
         })
+
+        
 
     }
     
@@ -76,8 +80,24 @@ const [busqueda, setBusqueda] = useState({
 
             errorValidate();
              return;
+}
 
-    }
+        const date1 = new Date (fechasalida)
+        const date2 = new Date (fechallegada)
+
+        const diff = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
+
+        diasReserva(diff);  
+        
+        if (date1.getTime() >= date2.getTime()){
+            errorValidateFechas()
+            return;
+        }
+
+
+
+        
+
 
     setTimeout(() => {
 
@@ -97,12 +117,11 @@ const [busqueda, setBusqueda] = useState({
     
     }, 2000)
 
-    const date1 = new Date (fechasalida)
-        const date2 = new Date (fechallegada)
-      
-        const diff = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
-      
-        diasReserva(diff);   
+        
+
+
+    
+        
 
     
 }
@@ -110,6 +129,9 @@ const [busqueda, setBusqueda] = useState({
     const onClick = () => {
         submitAction()
     }
+
+    
+
 
     
 
@@ -144,7 +166,7 @@ return (
                         <select  
                             name="provinciasalida" 
                             value={provinciasalida} 
-                            onChange={onChangeBusqueda} className="form_select"
+                            onChange={onChangeBusqueda} className="form-control"
                         >
                             <OptionsSelect1/>
                         </select>
@@ -152,14 +174,15 @@ return (
                         <select 
                             onChange={onChangeBusqueda} 
                             name="provinciallegada" value={provinciallegada}  
-                            className="form_select">
+                            className="form-control">
                             <OptionsSelect1/>
                         </select>
                 </div>
 
                 <div className="form_field">
-                
+                    
                     <input
+                    
                         onChange={onChangeBusqueda}
                         className="form-control"  
                         type="date" 
@@ -198,12 +221,13 @@ return (
                     <button 
                         onClick = {onClick} 
                         type="submit"
-                        className="btn_submit"
+                        className="btn btn-big"
                         
                         >Buscar
                     </button>
                 </div>
-                { error ? <p>Es obligatorio rellenar todos los campos</p> : null }
+                {errorfecha ? <p className="error_validate"> El formato de la fecha es incorrecto</p> : null}
+                { error ? <p className="error_validate">Es obligatorio rellenar todos los campos</p> : null }
                 
                 {loading ? 
                    <ClipLoader

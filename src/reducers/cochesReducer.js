@@ -1,6 +1,15 @@
-import { MOSTRAR_LISTA,VALIDAR_ERROR, OBTENER_DATOS, OCULTAR_FORM,MOSTRAR_SPINNER,DIAS_RESERVA} from "../types";
+import { 
+    MOSTRAR_LISTA,
+    VALIDAR_ERROR, 
+    OBTENER_DATOS, 
+    OCULTAR_FORM,
+    MOSTRAR_SPINNER,
+    DIAS_RESERVA,
+    VALIDAR_FECHAS,
+    FILTRAR_COCHES,
+    
+} from "../types";
 import annete from '../img/anette.png'
-
 import gtr from '../img/gtr.png'
 import murano from '../img/murano.png'
 import california from '../img/california.png'
@@ -31,46 +40,73 @@ const initialState = {
     datos:[],
     lista: false,
     error: false,
+    errorfecha:false,
     loading: false,
     provinciaform: false,
-    diasreserva: []
+    diasreserva: [],
+    cochesfiltrados: []
+   
+    
 
 }
 
-export default function(state = initialState, action) {
+export default function foo(state = initialState, action) {
     switch(action.type){
+
+        
+        case OBTENER_DATOS:
+            return{
+                ...state,
+                datos: action.payload,
+                //error: false,
+                loading:true,
+                lista:false
+                
+            }
+
+      
+
+        
+
+        case MOSTRAR_SPINNER: 
+            return{
+                ...state,
+                loading: true,
+                
+                
+            }
 
         case MOSTRAR_LISTA:
             return{
                 ...state,
                 lista : true,
-                
+                error:false,
+                errorfecha:false
                 
             }
 
 
-        case OBTENER_DATOS:
-            return{
-                ...state,
-                datos: [...state.datos, action.payload],
-                error: false,
-                loading:true,
-                lista:false
-                
-                
-
-            }
-            
+        
         case VALIDAR_ERROR:
             return{
                 ...state,
                 error: true,
                 lista:false,
-                loading: false
+                loading: false,
+                
                 
                 
             }
 
+        case VALIDAR_FECHAS:
+            return{
+                ...state,
+                errorfecha: true,
+                lista:false,
+                
+            }
+
+        
         case OCULTAR_FORM:
            return{
                 ...state,
@@ -79,12 +115,7 @@ export default function(state = initialState, action) {
                 lista:true
                
             }
-        case MOSTRAR_SPINNER: 
-        return{
-            ...state,
-            loading: true,
-            
-        }
+     
 
         case DIAS_RESERVA:
             return{
@@ -92,10 +123,14 @@ export default function(state = initialState, action) {
                 diasreserva: [ action.payload]
             }
 
-     
-       
-         
-           default:
+        case FILTRAR_COCHES :
+            return{
+                ...state,
+                cochesfiltrados:  state.coches.filter(coche => coche.tipo === action.payload)
+
+            }
+
+      default:
             return state;
     }
 }

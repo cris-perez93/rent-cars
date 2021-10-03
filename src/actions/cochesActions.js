@@ -1,19 +1,25 @@
-import {OCULTAR_FORM, MOSTRAR_LISTA,VALIDAR_ERROR,OBTENER_DATOS,MOSTRAR_SPINNER,DIAS_RESERVA} from "../types";
+import {
+    OCULTAR_FORM,
+    MOSTRAR_LISTA,
+    VALIDAR_ERROR,
+    OBTENER_DATOS,
+    MOSTRAR_SPINNER,
+    DIAS_RESERVA,
+    VALIDAR_FECHAS,
+    FILTRAR_COCHES,
+    
+
+} from "../types";
 
 
 
-
-// Obtener busqueda
-
-export function formActions(dato) {
+export function formActions(datos) {
     return (dispatch) => {
        dispatch( submitAction());
-       dispatch(obtenerDatos(dato))
+       dispatch(obtenerDatos(datos))
        
-      
-            
-        
-   }
+       
+     }
 }
 
 const submitAction = () => ({
@@ -22,17 +28,21 @@ const submitAction = () => ({
 
 })
 
-const obtenerDatos = dato => ({
+const obtenerDatos = datos => ({
     type: OBTENER_DATOS,
-    payload: dato
+    payload: datos
 })
+
+
+
 
 
 
 export function errorAction() {
     return (dispatch) => {
        
-       dispatch(errorValidate())
+       dispatch(errorValidate());
+       dispatch(errorValidateFechas())
             
 }}
 
@@ -41,6 +51,12 @@ const errorValidate = () => ({
     type: VALIDAR_ERROR,
     
 })
+
+const errorValidateFechas = () => ({
+    type: VALIDAR_FECHAS
+})
+
+
 
 export function ocultarFormAction() {
     return(dispatch) => {
@@ -76,6 +92,23 @@ const diasReserva = (dia) => ({
     type: DIAS_RESERVA,
     payload: dia 
 })
+
+
+
+export function filtrarTipoAction(coche) {
+    return(dispatch) => {
+        dispatch(filtrarDeportivo(coche));
+    }
+}
+
+
+const filtrarDeportivo =  coche => ({
+    type: FILTRAR_COCHES,
+    payload: coche
+})
+
+
+
 
 
 

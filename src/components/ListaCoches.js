@@ -14,30 +14,29 @@ const ListaCoches = ({busqueda}) => {
   
 
   // obtener el state
-  const coches = useSelector(state =>state.coches.coches);
+  const cochesfiltrados= useSelector(state => state.coches.cochesfiltrados)
   
 return (
        
-         <div className="container_lista"> 
+         <div className="container_lista">
            
-            
-            
               <Datos
-                busqueda = { busqueda }
-              />
-               
-            
-            <div className="container_content">
-                <TipoCoche
+                    
+                  busqueda ={busqueda}
+                              
+               />
+                       
+             <div className="container_content">
+                 <TipoCoche
                     
                     
-                />
+                  />
                 
                 <div className="listado_coches">
-                    {coches.length === 0
-                        ?(<li><p>No hay información</p></li>)
+                    {cochesfiltrados.length === 0
+                    ? (<p>Escoge un tipo</p>)
 
-                        :coches.map(coche =>(
+                        :cochesfiltrados.map(coche =>(
                             <CardCoche
                               key={coche.id}
                               coche ={coche}
