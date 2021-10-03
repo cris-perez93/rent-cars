@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/rent-cars/static/css/main.1b2b3c4f.chunk.css",
-    "main.js": "/rent-cars/static/js/main.66639f70.chunk.js",
-    "main.js.map": "/rent-cars/static/js/main.66639f70.chunk.js.map",
+    "main.css": "/rent-cars/static/css/main.010673da.chunk.css",
+    "main.js": "/rent-cars/static/js/main.a7e8703c.chunk.js",
+    "main.js.map": "/rent-cars/static/js/main.a7e8703c.chunk.js.map",
     "runtime-main.js": "/rent-cars/static/js/runtime-main.6638af38.js",
     "runtime-main.js.map": "/rent-cars/static/js/runtime-main.6638af38.js.map",
     "static/js/2.dd32ff88.chunk.js": "/rent-cars/static/js/2.dd32ff88.chunk.js",
@@ -10,24 +10,24 @@
     "static/js/3.a286ad39.chunk.js": "/rent-cars/static/js/3.a286ad39.chunk.js",
     "static/js/3.a286ad39.chunk.js.map": "/rent-cars/static/js/3.a286ad39.chunk.js.map",
     "index.html": "/rent-cars/index.html",
-    "static/css/main.1b2b3c4f.chunk.css.map": "/rent-cars/static/css/main.1b2b3c4f.chunk.css.map",
+    "static/css/main.010673da.chunk.css.map": "/rent-cars/static/css/main.010673da.chunk.css.map",
     "static/js/2.dd32ff88.chunk.js.LICENSE.txt": "/rent-cars/static/js/2.dd32ff88.chunk.js.LICENSE.txt",
-    "static/media/Todoterreno.154abe13.png": "/rent-cars/static/media/Todoterreno.154abe13.png",
-    "static/media/anette.ad64140c.png": "/rent-cars/static/media/anette.ad64140c.png",
+    "static/media/Todoterreno.e5b999af.png": "/rent-cars/static/media/Todoterreno.e5b999af.png",
+    "static/media/anette.66cec620.png": "/rent-cars/static/media/anette.66cec620.png",
     "static/media/index.css": "/rent-cars/static/media/background_form.4d5a889f.jpg",
-    "static/media/bugati.56e6df93.png": "/rent-cars/static/media/bugati.56e6df93.png",
+    "static/media/bugati.bbaa7617.png": "/rent-cars/static/media/bugati.bbaa7617.png",
     "static/media/california.c37ed3c1.png": "/rent-cars/static/media/california.c37ed3c1.png",
-    "static/media/deportivo.c165dd57.png": "/rent-cars/static/media/deportivo.c165dd57.png",
-    "static/media/furgoneta.fdeda965.png": "/rent-cars/static/media/furgoneta.fdeda965.png",
-    "static/media/gtr.860910db.png": "/rent-cars/static/media/gtr.860910db.png",
-    "static/media/murano.cf7f8a54.png": "/rent-cars/static/media/murano.cf7f8a54.png",
+    "static/media/deportivo.ce8cb363.png": "/rent-cars/static/media/deportivo.ce8cb363.png",
+    "static/media/furgoneta.8942fddf.png": "/rent-cars/static/media/furgoneta.8942fddf.png",
+    "static/media/gtr.9716dc87.png": "/rent-cars/static/media/gtr.9716dc87.png",
+    "static/media/murano.3f0d5155.png": "/rent-cars/static/media/murano.3f0d5155.png",
     "static/media/qashqai.ad642882.png": "/rent-cars/static/media/qashqai.ad642882.png",
-    "static/media/tesla.5b615d02.png": "/rent-cars/static/media/tesla.5b615d02.png"
+    "static/media/tesla.b8dd1940.png": "/rent-cars/static/media/tesla.b8dd1940.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6638af38.js",
     "static/js/2.dd32ff88.chunk.js",
-    "static/css/main.1b2b3c4f.chunk.css",
-    "static/js/main.66639f70.chunk.js"
+    "static/css/main.010673da.chunk.css",
+    "static/js/main.a7e8703c.chunk.js"
   ]
 }
