@@ -129,12 +129,7 @@ return (
         <div className="container_form">
            
                 
-            <div className="container_titulo">       
-                <h1 className="titulo">RENT CAR</h1>
-                <div className="line"></div>
-                <h2 className="subtitulo">Alquila tu vehiculo de la manera mas sencilla</h2>
-                <h3 className="lorem">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. .</h3>
-            </div>
+           
               
             
            
@@ -171,7 +166,7 @@ return (
                         type="date" 
                         name='fechasalida'
                         value={fechasalida}
-                        defaultValue ="date"
+                        
                     />
                     </div>
                     <div className="horas">
@@ -194,7 +189,7 @@ return (
                         type="date" 
                         name='fechallegada'
                         value={fechallegada}
-                        defaultValue ="date"
+                       
                         
                     />
                      </div>

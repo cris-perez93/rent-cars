@@ -35,9 +35,6 @@ const obtenerDatos = datos => ({
 
 
 
-
-
-
 export function errorAction() {
     return (dispatch) => {
        
