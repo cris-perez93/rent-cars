@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/rent-cars/static/css/main.94cff1f9.chunk.css",
-    "main.js": "/rent-cars/static/js/main.e86bc551.chunk.js",
-    "main.js.map": "/rent-cars/static/js/main.e86bc551.chunk.js.map",
+    "main.css": "/rent-cars/static/css/main.fcb9e237.chunk.css",
+    "main.js": "/rent-cars/static/js/main.085ff8f4.chunk.js",
+    "main.js.map": "/rent-cars/static/js/main.085ff8f4.chunk.js.map",
     "runtime-main.js": "/rent-cars/static/js/runtime-main.6638af38.js",
     "runtime-main.js.map": "/rent-cars/static/js/runtime-main.6638af38.js.map",
     "static/js/2.6731033f.chunk.js": "/rent-cars/static/js/2.6731033f.chunk.js",
@@ -10,11 +10,11 @@
     "static/js/3.a286ad39.chunk.js": "/rent-cars/static/js/3.a286ad39.chunk.js",
     "static/js/3.a286ad39.chunk.js.map": "/rent-cars/static/js/3.a286ad39.chunk.js.map",
     "index.html": "/rent-cars/index.html",
-    "static/css/main.94cff1f9.chunk.css.map": "/rent-cars/static/css/main.94cff1f9.chunk.css.map",
+    "static/css/main.fcb9e237.chunk.css.map": "/rent-cars/static/css/main.fcb9e237.chunk.css.map",
     "static/js/2.6731033f.chunk.js.LICENSE.txt": "/rent-cars/static/js/2.6731033f.chunk.js.LICENSE.txt",
     "static/media/Todoterreno.e5b999af.png": "/rent-cars/static/media/Todoterreno.e5b999af.png",
     "static/media/anette.66cec620.png": "/rent-cars/static/media/anette.66cec620.png",
-    "static/media/index.css": "/rent-cars/static/media/background_form.4d5a889f.jpg",
+    "static/media/index.css": "/rent-cars/static/media/background_form.62f91fad.jpg",
     "static/media/bugati.bbaa7617.png": "/rent-cars/static/media/bugati.bbaa7617.png",
     "static/media/california.c37ed3c1.png": "/rent-cars/static/media/california.c37ed3c1.png",
     "static/media/deportivo.ce8cb363.png": "/rent-cars/static/media/deportivo.ce8cb363.png",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.6638af38.js",
     "static/js/2.6731033f.chunk.js",
-    "static/css/main.94cff1f9.chunk.css",
-    "static/js/main.e86bc551.chunk.js"
+    "static/css/main.fcb9e237.chunk.css",
+    "static/js/main.085ff8f4.chunk.js"
   ]
 }
