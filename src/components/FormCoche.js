@@ -163,9 +163,10 @@ return (
                     <input
                         onChange={onChangeBusqueda}
                         className="form-control textbox-n"  
-                        type="date" 
+                        type="date"
                         name='fechasalida'
                         value={fechasalida}
+                        
                         
                     />
                     </div>
